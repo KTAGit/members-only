@@ -7,6 +7,7 @@ export async function createTable() {
             first_name TEXT NOT NULL,
             last_name TEXT NOT NULL,
             username TEXT NOT NULL UNIQUE,
+            hashed_password VARCHAR(255) NOT NULL,
             ismember BOOLEAN NOT NULL DEFAULT false,
             isadmin BOOLEAN NOT NULL DEFAULT false
         )`
