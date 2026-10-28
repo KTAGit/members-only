@@ -1,13 +1,232 @@
 @import url("./fonts.css");
 
 body {
+    margin: 0;
     background-color: var(--page-bg-color);
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.signup-main-container {
+.navbar {
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid 1px rgb(200 197 203);
+    .navbar-content-wrapper {
+        display: flex;
+        min-width: 896px;
+        justify-content: space-between;
+        font-family: "Space Grotesk";
+        .profile-container {
+            display: flex;
+            align-items: center;
+            * {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+
+            button {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            form {
+                button {
+                    border: none;
+                    background-color: transparent;
+                }
+                button:hover {
+                    color: #BA1A1A;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
     
 }
 
+.signup-btn {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    background-color: #000000;
+    color: #FFFFFF;
+}
 
+.signup-btn:hover {
+    background-color: #000000c0;
+    cursor: pointer;
+}
+
+.title-container {
+    h3 {
+        font-family: "Space Grotesk";
+        font-weight: 500;
+    }
+}
+
+.compose-message {
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+}
+
+.compose-message:hover {
+    background-color: #000000c0;
+    cursor: pointer;
+}
+
+.title-wrapper {
+    width: 100%;
+    font-family: "Space Grotesk";
+    h1 {
+        font-weight: 500;
+        font-size: 2.4rem;
+        color: #1A1C1A;
+        margin-bottom: 0;
+    }
+    p {
+        color: #47464B;
+        font-size: 1.2rem;
+        margin-top: 7px;
+        letter-spacing: .5px;
+    }
+}
+
+.main-content-container {
+    max-width: 896px;
+}
+
+.become-memeber-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #EEEEEA;
+    .member-detail-wrapper {
+        p {
+            margin: 5px;
+            font-size: .9rem;
+            letter-spacing: .5px;
+            font-weight: 400;
+            font-family: "Hanken Grotesk";
+        }
+
+        .sub-info {
+            font-family: "Space Grotesk";
+            color: #47464B;
+            font-size: .9rem;
+        }
+    }
+
+    button {
+        height: fit-content;
+        width: fit-content;
+        background-color: #000000;
+        color: #FFFFFF;
+        padding: 0px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+        align-self: center;
+        font-family: "Hanken Grotesk";
+    }
+
+    button:hover {
+        cursor: pointer;
+        background-color: #000000c0;
+    }
+}
+
+.message-container {
+    margin-top: 25px;
+}
+
+.message-wrapper {
+    padding: 25px;
+    background-color: rgb(255 255 255);
+    margin-bottom: 20px;
+}
+
+.author-info-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #EEEEEA;
+    text-indent: 10px;
+    font-family: "Space Grotesk";
+    font-size: .8rem;
+    display: flex;
+    gap: 15px;
+    .author-name {
+        margin: 0px;
+        .message-date {
+            color: var(--secondary-color);
+            font-size: .7rem;
+            letter-spacing: 1px;
+        }
+
+        .point {
+            margin-left: 5px;
+            margin-right: 5px;
+            color: rgb(200 197 203);
+            font-size: 1rem;
+        }
+    }
+}
+
+.anonymous-title-wrapper {
+    display: flex;
+    text-align: center;
+    gap: 5px;
+    font-family: "Space Grotesk";
+    font-size: .9rem;
+    padding-bottom: 7px;
+    border-bottom: solid 1px rgb(200 197 203);
+}
+
+.title-message-wrapper {
+    font-family: "Space Grotesk";
+    .message-title {
+        font-size: 1.15rem;
+        font-weight: 400;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    .message {
+        margin-top: 5px;
+        font-size: .95rem;
+        color: var(--tertiary-color);
+        line-height: 25px;
+        margin-bottom: 0px;
+    }
+}
+
+.message-wrapper:hover {
+    background-color: #EEEEEA;
+}
+
+.delete-message-btn {
+    color: #BA1A1A;
+    background-color:#FFFFFF;
+    border: solid 1px rgb(200 197 203);
+    font-weight: 500;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.delete-message-btn:hover {
+    color: #FFFFFF;
+    background-color:#BA1A1A;
+    cursor: pointer;
+    
+}

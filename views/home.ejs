@@ -8,8 +8,93 @@
 </head>
 <body>
     <nav class="navbar">
-        
+        <div class="navbar-content-wrapper">
+            <div class="title-container">
+                <h3>MEMBERS ONLY</h3>
+            </div>
+            <div class="profile-container">
+                <%if(userData){%>
+                    <a href="/create-message"><button class="compose-message">COMPOSE</button></a>
+                    <%if(userData.ismember){%>
+                        <span class="member-badge">MEMBER</span>
+                    <%}%>
+                    <form action="/logout" method="post">
+                        <button type="submit">EXIT</button>
+                    </form>
+                    <p>Hi, <%=userData.username%></p>
+                <%}else {%>
+                    <a href="/signup"><button class="signup-btn">Signup</button></a>
+                <%}%>
+            </div>
+        </div>
     </nav>
+
+    <div class="main-content-container">
+        <div class="title-wrapper">
+            <h1>COMMINITY MESSAGES</h1>
+            <%if(userData){%>
+                <%if(!userData.ismember && !userData.isadmin){%>
+                    <p>A collection of messages and reflections posted anonymously within the clubhouse.</p>
+                <%}%>
+
+                <%if(userData.ismember || userData.isadmin){%>
+                    <%if(userData.isadmin) {%>
+                        <p>You're an admin. Identity masking removed, author attribution unlocked across all archival records.</p>
+                    <%}else {%>
+                        <p>You're a member. Identity masking removed, author attribution unlocked across all archival records.</p>
+                    <%}%>
+                <%}%>
+            <%}%>
+            
+            
+        </div>
+
+        <%if(userData){%>   
+            <%if(userData && !userData.ismember){%>
+                <div class="become-memeber-wrapper">
+                    <div class="member-detail-wrapper">
+                        <p>AUTHOR IDENTITIES & TIMESTAMPS ENCRYPTED</p>
+                        <p class="sub-info">Members can see who's behind each story.</p>
+                    </div>
+                    <button class="become-member-btn">BECOME A MEMBER ➔</button>
+                </div>
+            <%}%>
+        <%}%>
+
+        <div class="message-container">
+            <div class="message-wrapper">
+                <%if(userData){%>
+                    <%if(userData.ismember || userData.isadmin){%>
+                        <div class="author-info-wrapper">
+                            <p class="author-name">WRITTEN BY SARAH JOHNSON <span class="point">•</span> <span class="message-date">Oct 5, 2026</span></p>
+                            <%if(userData.isadmin){%>
+                                <button class="delete-message-btn">DELETE</button>
+                            <%}%>
+                        </div>
+                        
+                    <%}else {%>
+                        <div class="anonymous-title-wrapper">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-off preview-icon"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>
+                            </span> ANONYMOUS
+                        </div>
+                    <%}%>
+                <%}else {%>
+                    <div class="anonymous-title-wrapper">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-off preview-icon"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>
+                        </span> ANONYMOUS
+                    </div>
+                <%}%>
+                <div class="title-message-wrapper">
+                    <p class="message-title">Someone finally said it</p>
+                    <p class="message">The relentless push for synthetic velocity in our quarterly cycles has hollowed out the actual craft. When we stopped writing memos and shifted entirely to unvetted dashboards, we traded deliberate judgment for immediate panic. It took two quiet exits this month for the room to acknowledge it.</p>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+
     
     
 </body>
