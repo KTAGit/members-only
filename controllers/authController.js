@@ -1,8 +1,9 @@
-import { createUserQuery } from "../model/accountQueries.js";
+import { createUserQuery, getUserById } from "../model/accountQueries.js";
 import { body, validationResult } from "express-validator";
 import dotenv from 'dotenv'
 import bcrypt from 'bcryptjs'
 import { AppError } from "../utils/AppError.js";
+import { getMessagesQuery } from "../model/messageQueries.js";
 import flash from "express-flash";
 
 
@@ -52,7 +53,6 @@ export async function renderLoginPage(req, res) {
     try {
         res.status(200).render("login", {messages: req.flash("error")})
     } catch (error) {
-        console.log(error)
         next(error)
     }
 }
@@ -65,5 +65,22 @@ export async function logoutUser(req, res, next) {
         
         res.redirect("/")
     })
+}
+
+export async function renderHome(req, res, next){
+    try {
+        const {rows} = await getMessagesQuery()
+        const messagesPromises = rows.map(async(msg) => {
+            const user = await getUserById(msg.user_id)
+            msg.username = user.username
+            msg.date = msg.created_at.toString().slice(0, 10)
+            return msg
+        })
+        const messages = await Promise.all(messagesPromises)
+
+        return res.status(200).render("home", { messages: messages, userData: req.user || null })
+    } catch (error) {
+        next(error)
+    }
 }
 

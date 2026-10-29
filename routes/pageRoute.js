@@ -1,15 +1,12 @@
 import { Router } from "express";
-import { createUserController, validateUser, renderSignupPage, renderLoginPage, logoutUser } from "../controllers/authController.js";
-import { createMessage, renderCreateMessage } from "../controllers/messageController.js";
+import { createUserController, validateUser, renderSignupPage, renderLoginPage, logoutUser, renderHome } from "../controllers/authController.js";
+import { createMessage, renderCreateMessage, deleteMessageController } from "../controllers/messageController.js";
 import passport from "passport";
 
 export const router = Router()
 
 
-router.get("/", (req, res) => {
-    console.log(req.user)
-    res.render('home', { userData: req.user || null })
-})
+router.get("/", renderHome)
 
 router.get("/signup", renderSignupPage)
 
@@ -34,9 +31,10 @@ router.post("/login", (req, res, next) => {
     })(req, res, next)
 })
 
-router.get("/create-message", renderCreateMessage)
+router.get("/create-message/:id", renderCreateMessage)
 
 router.post("/create-message", createMessage)
 
+router.get("/delete-message/:id", deleteMessageController)
 
 router.post("/logout", logoutUser)

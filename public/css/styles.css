@@ -9,13 +9,14 @@ body {
 }
 
 .navbar {
-    min-width: 100vw;
+    width: 100vw;
     display: flex;
     justify-content: center;
     border-bottom: solid 1px rgb(200 197 203);
     .navbar-content-wrapper {
         display: flex;
-        min-width: 896px;
+        width: 95%;
+        max-width: 896px;
         justify-content: space-between;
         font-family: "Space Grotesk";
         .profile-container {
@@ -103,6 +104,7 @@ body {
 }
 
 .main-content-container {
+    width: 95%;
     max-width: 896px;
 }
 
@@ -229,4 +231,89 @@ body {
     background-color:#BA1A1A;
     cursor: pointer;
     
+}
+
+.create-message-container {
+    width: 700px;
+    font-family: "Space Grotesk";
+}
+
+.create-message-title-wrapper {
+    h1 {
+        font-weight: 500;
+        font-size: 2.2rem;
+        margin-bottom: 0px;
+    }
+
+    p {
+        margin-top: 3px;
+        color: var(--tertiary-color);
+    }
+}
+
+.create-message-container {
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: #FFFFFF;
+        padding: 30px;
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            textarea {
+                min-height: 300px;
+                max-height: 300px;
+                max-width: 100%;
+                background-color: #F4F4F0;
+                border: none;
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            label {
+                font-size: .8rem;
+            }
+        }
+
+        .title-wrapper {
+            input {
+                font-size: 1.2rem;
+                padding: 10px;
+                background-color: #F4F4F0;
+                border: none;
+                font-family: "Space Grotesk";
+            }
+        }
+    }
+
+    .button-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        button {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: .8rem;
+            border: none;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        .post-message-btn {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+        }
+
+        .post-message-btn:hover {
+            background-color: var(--primary-color);
+            background-color: #000000c0;
+        }
+    }
 }

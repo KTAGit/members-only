@@ -7,6 +7,29 @@
     <title>Create Message</title>
 </head>
 <body>
-    
+    <div class="create-message-container">
+        <div class="create-message-title-wrapper">
+            <h1>Create a new message</h1>
+            <p>Your message will be visible across the clubhouse. Anonymous to public visitors, but visible with your member atribution to authenticated peers.</p>
+        </div>
+
+        <form action="/create-message" method="post">
+            <%if(userId){%>
+                <input type="text" name="userId" value="<%=userId%>" hidden>
+            <%}%>
+            <div class="title-wrapper">
+                <label for="title">MESSAGE TITLE *</label>
+                <input type="text" required name="title" placeholder="The quiet compounding of craft...">
+            </div>
+            <div class="message-input-wrapper">
+                <label for="message">TEXT BODY *</label>
+                <textarea name="message" id="message" required placeholder="Write your story, critique, or reflection..."></textarea>
+            </div>
+            <div class="button-wrapper">
+                <button class="post-message-btn" type="submit">POST MESSAGE ➔</button>
+                <a href="/"><button type="button">CANCEL</button></a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
