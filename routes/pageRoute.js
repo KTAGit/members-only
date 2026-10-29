@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUserController, validateUser, renderSignupPage, renderLoginPage, logoutUser, renderHome } from "../controllers/authController.js";
+import { createUserController, validateUser, renderSignupPage, renderLoginPage, logoutUser, renderHome, renderBecomeMember, becomeMember } from "../controllers/authController.js";
 import { createMessage, renderCreateMessage, deleteMessageController } from "../controllers/messageController.js";
 import passport from "passport";
 
@@ -36,5 +36,9 @@ router.get("/create-message/:id", renderCreateMessage)
 router.post("/create-message", createMessage)
 
 router.get("/delete-message/:id", deleteMessageController)
+
+router.get("/join-club/:id", renderBecomeMember)
+
+router.post("/join-club", becomeMember)
 
 router.post("/logout", logoutUser)

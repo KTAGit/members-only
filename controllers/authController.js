@@ -1,4 +1,4 @@
-import { createUserQuery, getUserById } from "../model/accountQueries.js";
+import { createUserQuery, getUserById, changeMembershipStatus } from "../model/accountQueries.js";
 import { body, validationResult } from "express-validator";
 import dotenv from 'dotenv'
 import bcrypt from 'bcryptjs'
@@ -84,3 +84,27 @@ export async function renderHome(req, res, next){
     }
 }
 
+export async function renderBecomeMember(req, res, next){
+    try {
+        res.status(200).render("becomeMember", {userId: req.params.id, messages: req.flash("error")})
+    } catch (error) {
+        next(error)
+    }
+}
+
+export async function becomeMember(req, res, next){
+    try {
+        const { userId, memberKey } = req.body
+        console.log(userId, memberKey) 
+        if (process.env.MEMBERSHIP_KEY !== memberKey) {
+            req.flash("error", "Wrong membership key")
+            return res.status(401).redirect(`/join-club/${userId}`)
+        }
+
+        await changeMembershipStatus(userId)
+
+        res.status(201).redirect("/")
+    } catch (error) {
+        next(error)
+    }
+}

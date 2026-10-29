@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Join the Club</title>
+</head>
+<body>
+    <%if(messages.length){%>
+        <div class="membership-error-message">
+            <%= messages[0] %>
+        </div>
+    <%}%>
+    <form action="/join-club" method="post" class="join-club-form">
+        <div class="join-title-wrapper">
+            <h3>Join the Club</h3>
+            <p>You're signed in, but you're not a member yet. Enter the private club key to unlock member access.</p>
+        </div>
+        <div class="member-key-input-wrapper">
+            <label for="member-key">SECRET MEMBERSHIP KEY</label>
+            <input type="text" name="memberKey" id="member-key" required placeholder="SECRET-KEY" oninput="this.value = this.value.toUpperCase();">
+            <input type="text" hidden value="<%=userId%>" name="userId">
+        </div>
+        <div class="join-club-btn-wrapper">
+            <button type="submit">JOIN THE CLUB</button>
+            <a href="/">Back to messages</a>
+        </div>
+    </form>
+</body>
+</html>

@@ -52,13 +52,15 @@
 
         <%if(userData){%>   
             <%if(!userData.ismember){%>
-                <div class="become-memeber-wrapper">
-                    <div class="member-detail-wrapper">
-                        <p>AUTHOR IDENTITIES & TIMESTAMPS ENCRYPTED</p>
-                        <p class="sub-info">Members can see who's behind each story.</p>
+                <%if(!userData.isadmin){%>
+                    <div class="become-memeber-wrapper">
+                        <div class="member-detail-wrapper">
+                            <p>AUTHOR IDENTITIES & TIMESTAMPS ENCRYPTED</p>
+                            <p class="sub-info">Members can see who's behind each story.</p>
+                        </div>
+                        <a href="/join-club/<%=userData.id%>"><button class="become-member-btn">BECOME A MEMBER ➔</button></a>
                     </div>
-                    <button class="become-member-btn">BECOME A MEMBER ➔</button>
-                </div>
+                <%}%>
             <%}%>
         <%}%>
 

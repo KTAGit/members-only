@@ -26,3 +26,11 @@ export async function getUserById(id) {
     
     return rows[0]
 }
+
+export async function changeMembershipStatus(id) {
+    return await pool.query(`
+        UPDATE users
+        SET ismember = TRUE
+        WHERE id = $1
+        `, [id])
+}
