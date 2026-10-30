@@ -11,7 +11,7 @@ export default function configurePassport(passport) {
                 const user = await getUserByUsername(username)
 
                 if (!user) {
-                    return done(null, false, { message: "Invalid username" })
+                    return done(null, false, { message: "Invalid username or password" })
                 }
 
                 const isMatch = await bcrypt.compare(password, user.hashed_password)

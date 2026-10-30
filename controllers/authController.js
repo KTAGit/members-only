@@ -39,7 +39,7 @@ export async function createUserController (req, res, next) {
 
         await createUserQuery(firstName,lastName, username, hashedPassword, ismember, isadmin)        
     
-        res.status(201).render("homePage")
+        res.status(201).redirect("/login")
     } catch (error) {
         if (error.code === "23505") {
             next(new AppError("Username already exists", 409))

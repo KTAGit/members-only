@@ -12,22 +12,26 @@
             <%= messages[0] %>
         </div>
     <%}%>
-    <form action="" method="post">
-        <div class="login-main-container">
+    <form action="" method="post" class="login-form">
+        <div class="login-title-container">
             <h1>Log in</h1>
-            <p>Enter your credentials</p>
+            <p>Enter your credentials to access the clubhouse and private messages.</p>
         </div>
         <div class="login-username-wrapper">
-            <label for="username">USERNAME*</label>
+            <label for="username">USERNAME</label>
             <input type="text" name="username" required>
         </div>
         <div class="login-password-wrapper">
-            <label for="password">PASSWORD*</label>
+            <label for="password">PASSWORD</label>
             <input type="password" name="password" required>
         </div>
 
         <div class="login-button-wrapper">
             <button>LOG IN</button>
+        </div>
+        <div class="create-account-wrapper">
+            <p>Don't have an account? <span><a href="/signup">Create an account</a></span></p>
+            <a href="/">RETURN TO HOME</a>
         </div>
     </form>
 </body>
