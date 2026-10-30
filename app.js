@@ -55,13 +55,15 @@ app.use((err, req, res, next) => {
 
     switch (statusCode) {
         case 400:
-            res.status(400).render("signup", {success: false, message: err.message})
+            req.flash("error", err.message)
+            res.status(400).redirect("/signup")
             break;
         case 404:
             res.status(404).render("errors/404")
             break;
-        case 409: 
-            res.status(409).render("signup", {success: false, message: err.message})
+        case 409:
+            req.flash("error", err.message) 
+            res.status(409).redirect("/signup")
             break;
         default:
             res.status(500).render("errors/500")

@@ -11,7 +11,7 @@ dotenv.config()
 
 export async function renderSignupPage(req, res, next) {
     try {
-        res.status(200).render("signup")
+        res.status(200).render("signup", { messages: req.flash("error") })
     } catch (error) {
         next(error)
     }
@@ -27,8 +27,8 @@ export const validateUser = [
 export async function createUserController (req, res, next) {
     try {
         const errors = validationResult(req)
-        if ( !errors.isEmpty() ) {
-            next(new AppError(errors.array()[0].msg, 400))
+        if ( !errors.isEmpty() ) {            
+            return next(new AppError(errors.array()[0].msg, 400))
         }
         const {firstName, lastName, username, password, confirmPassword, admin} = req.body
 

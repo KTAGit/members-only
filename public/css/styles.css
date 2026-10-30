@@ -513,11 +513,186 @@ body {
     }
 }
 
-.login-error-message {
+.login-error-message, .signup-error-message {
     position:absolute;
     top: 65px;
     font-family: "Hanken Grotesk";
     padding: 10px;
     color: #BA1A1A;
     letter-spacing: 1px;
+}
+
+.signup-main-container {
+    font-family: "Space Grotesk";
+    padding: 20px;
+    background-color:#FFFFFF;
+    margin-top: 50px;
+    max-width: 380px;
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 35px;
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            input {
+                font-family: "Hanken Grotesk";
+                font-size: 1rem;
+                height: 35px;
+                border: none;
+                background-color: var(--page-bg-color);
+                text-indent: 10px;
+                letter-spacing: .5px;
+            }
+
+            label {
+                font-size: .89rem;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+        }
+
+        .form-title-wrapper {
+            h1 {
+                margin: 0px;
+            }
+
+            p {
+                margin: 0px;
+                margin-top: 10px;
+                margin-top: 5px;
+                line-height: 20px;
+                color: #47464B;
+                font-size: .89rem;
+                align-self: center;
+                line-height: 25px;
+            }
+        }
+        
+        
+    }
+
+    .first-last-name-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .main-password-container {
+        gap: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .line-divider {
+        border-bottom: #47464b46 solid 1px;
+    }
+
+    .admin-input-container {
+        background-color: var(--page-bg-color);
+        padding: 15px;
+
+        .admin-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            p {
+                font-size: .8rem;
+                letter-spacing: 1px;
+                margin-bottom: 3px;
+            }
+
+            .restricted {
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-bottom: 2px;
+                padding-top: 2px;
+                background-color: #FFFFFF;
+            }
+        }
+
+        
+        input {
+            background-color:#FFFFFF;
+        }
+
+
+        .admin-input-wrapper {
+
+        }
+
+        .admin-info-wrapper {
+            display: flex;
+            flex-direction: row;
+            margin-top: 10px;
+            gap: 0;
+            .admin-info {
+                font-size: .8rem;
+                letter-spacing: .3px;
+                margin: 0px;
+                color: #47464B;
+            }
+        }
+    }
+
+    .button-wrapper {
+        button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 15px;
+            font-family: "Space Grotesk";
+            letter-spacing: 1px;
+            color: #FFFFFF;
+            background-color: #000000;
+            border: none;
+            margin-bottom: 5px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: #000000c0;
+        }
+
+        p {
+            font-family: "Hanken Grotesk";
+            text-align: center;
+            max-width: 310px;
+            margin-top: 5px;
+            line-height: 20px;
+            color: #47464B;
+            font-size: .8rem;
+            align-self: center;
+            line-height: 25px;
+            span {
+
+                border-bottom: #000000 solid 1px;
+
+                a {
+                    text-decoration: none;
+                    color: #000000;
+                }
+
+                a:hover {
+                    color: #000000c8;
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+            text-align: center;
+            color: #47464B;
+            font-size: .75rem;
+            letter-spacing: 1px;
+        }
+
+        a:hover {
+            color: #000000;
+        }
+    }
+
 }
