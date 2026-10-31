@@ -15,9 +15,6 @@
             <div class="profile-container">
                 <%if(userData){%>
                     <a href="/create-message/<%=userData.id%>"><button class="compose-message">COMPOSE</button></a>
-                    <%if(userData.ismember){%>
-                        <span class="member-badge">MEMBER</span>
-                    <%}%>
                     <form action="/logout" method="post">
                         <button type="submit">EXIT</button>
                     </form>

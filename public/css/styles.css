@@ -36,6 +36,10 @@ body {
 
             p {
                 margin: 0;
+                max-width: 120px;
+                white-space: nowrap;
+                overflow: hidden; 
+                text-overflow: ellipsis;
             }
 
             form {
@@ -513,7 +517,7 @@ body {
     }
 }
 
-.login-error-message, .signup-error-message {
+.login-error-message, .signup-error-message, .membership-error-message {
     position:absolute;
     top: 65px;
     font-family: "Hanken Grotesk";
@@ -695,4 +699,19 @@ body {
         }
     }
 
+}
+
+
+@media (max-width: 600px) {
+    .become-memeber-wrapper {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 520px) {
+    .author-info-wrapper {
+        flex-direction: column;
+    }
 }
