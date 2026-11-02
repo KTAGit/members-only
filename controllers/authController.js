@@ -95,7 +95,7 @@ export async function renderBecomeMember(req, res, next){
 export async function becomeMember(req, res, next){
     try {
         const { userId, memberKey } = req.body
-        console.log(userId, memberKey) 
+
         if (process.env.MEMBERSHIP_KEY !== memberKey) {
             req.flash("error", "Wrong membership key")
             return res.status(401).redirect(`/join-club/${userId}`)

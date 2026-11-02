@@ -13,7 +13,7 @@
             <p>Your message will be visible across the clubhouse. Anonymous to public visitors, but visible with your member atribution to authenticated peers.</p>
         </div>
 
-        <form action="/create-message" method="post">
+        <form action="/create-message" method="post" class="create-message-form">
             <%if(userId){%>
                 <input type="text" name="userId" value="<%=userId%>" hidden>
             <%}%>
