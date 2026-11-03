@@ -698,6 +698,38 @@ body {
 
 }
 
+.error-title {
+    font-family: "Hanken Grotesk";
+    font-size: 12rem;
+    margin-bottom: 0;
+}
+
+.error-sub-title {
+    font-family: "Hanken Grotesk";
+    font-size: 1.5rem;
+    margin-top: 0;
+    font-weight: bolder;
+    margin-bottom: 35px;
+}
+
+.go-back-home {
+    width: 100%;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: "Hanken Grotesk";
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    background-color: #000000;
+    border: none;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.go-back-home:hover {
+    cursor: pointer;
+    background-color: #000000c0;
+}
 
 
 @media (max-width: 700px) {
